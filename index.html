@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
 
-  <!-- vendor scripts -->
-  <script src="vendor/underscore.js"></script>
-  <script src="vendor/jquery.js"></script>
-  <script src="vendor/angular.js"></script>
+    <!-- vendor scripts -->
+    <script src="vendor/underscore.js"></script>
+    <script src="vendor/jquery.js"></script>
+    <script src="vendor/angular.js"></script>
 
-  <!-- app scripts -->
-  <script src="js/utils.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services/peopleSearchSrv.js"></script>
-  <script src="js/controllers/PeopleListCtrl.js"></script>
-  <script src="js/controllers/PersonCtrl.js"></script>
-  <script src="js/bootstrap.js"></script>
+    <!-- app scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/peopleSearchSrv.js"></script>
+    <script src="js/controllers/PeopleListCtrl.js"></script>
+    <script src="js/controllers/PersonCtrl.js"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
 <body>
 <div class="main">
 
-  <div ng-controller="PersonCtrl">
-    <h3>Name: {{person.name}}</h3>
-      <div>Age: {{person.age}}</div>
-      <div>Id: {{person.id}}</div>
-      <div><hr /></div>
-    <label>Name: <input ng-model="person.name" type="text"/></label><br>
-      <label>Age: <input ng-model="person.age" type="text"/></label>
-  </div>
+    <div ng-controller="PersonCtrl">
+        <h3>Name: {{person.name}}</h3>
 
-  <div ng-controller="PeopleListCtrl">
-    <ul>
-      <li ng-repeat="person in people" ng-click="greetWith(person)">
-        Name: {{person.name}}
-      </li>
-    </ul>
-    <button ng-click="createNew()">Add</button>
-  </div>
+        <div>Age: {{person.age}}</div>
+        <div>Id: {{person.id}}</div>
+        <div>
+            <hr/>
+        </div>
+        <label>Name: <input ng-model="person.name" type="text"/></label><br>
+        <label>Age: <input ng-model="person.age" type="text"/></label>
+    </div>
+    <hr/>
+    <div ng-controller="PeopleListCtrl">
+        <ul>
+            <li ng-repeat="person in people" ng-click="greetWith(person)">
+                Name: {{person.name}} Age: {{person.age}}
+                <button ng-click="moveUp(person)">up</button>
+                <button ng-click="moveDown(person)">down</button>
+            </li>
+        </ul>
+        <label>Name: <input ng-model="newPerson.name" type="text"/></label>
+        <label>Age: <input ng-model="newPerson.age" type="number"/></label>
+
+        <button ng-click="createNew()">Add</button>
+        <button ng-click="clearAll()">Clear all</button>
+    </div>
 
 </div>
 </body>
