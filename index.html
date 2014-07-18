@@ -21,7 +21,11 @@
 
   <div ng-controller="PersonCtrl">
     <h3>Name: {{person.name}}</h3>
-    <input ng-model="person.name" type="text"/>
+      <div>Age: {{person.age}}</div>
+      <div>Id: {{person.id}}</div>
+      <div><hr /></div>
+    <label>Name: <input ng-model="person.name" type="text"/></label><br>
+      <label>Age: <input ng-model="person.age" type="text"/></label>
   </div>
 
   <div ng-controller="PeopleListCtrl">
